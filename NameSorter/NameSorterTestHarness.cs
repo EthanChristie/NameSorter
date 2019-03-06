@@ -10,14 +10,36 @@ namespace NameSorter
         public void CanSortWhenGivenTwoNames()
         {
 
-            var janetBentley = new Person(new string[] { "Janet" }, "Bentley");
-            var georgeArcher = new Person(new string[] {"George"}, "Archer");
+            var janetBentley = new Person("Janet", "Bentley");
+            var georgeArcher = new Person("George", "Archer");
 
-            var unsortedList = new List<Person> { janetBentley, georgeArcher };
+            var actualList = new List<Person> { janetBentley, georgeArcher };
+            var expectedList = new List<Person> { georgeArcher, janetBentley };
 
-            var sortedNames = NameSorter.Sort(unsortedList);
+            var nameSorter = new PersonComparer();
 
-            Assert.AreEqual(sortedNames[0], georgeArcher);
+            actualList.Sort(nameSorter);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [Test]
+        public void CanSortWhenGivenThreeNames()
+        {
+
+            var janetJacksonBentley = new Person("Janet Jackson", "Bentley");
+            var janetAardvarkBentley = new Person("Janet Aardvark", "Bentley");
+            var georgeArcher = new Person("George", "Archer");
+
+            var actualList = new List<Person> {  janetJacksonBentley, janetAardvarkBentley, georgeArcher };
+
+            var expectedList = new List<Person> { georgeArcher, janetAardvarkBentley, janetJacksonBentley };
+
+            var nameSorter = new PersonComparer();
+
+            actualList.Sort(nameSorter);
+
+            Assert.AreEqual(expectedList, actualList);
         }
     }
 }

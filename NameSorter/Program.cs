@@ -9,13 +9,13 @@ namespace NameSorter
         {
             string fileName = "input-file.txt";
 
-            var persons = PersonDeserializer.DeserializeFromFile("input-file.txt");
+            var persons = PersonConverter.DeserializeFromFile(fileName);
 
-            var names = new List<Person>();
+            var nameSorter = new PersonComparer();
 
+            persons.Sort(nameSorter);
 
-
-            var sortedNames = NameSorter.Sort(names);
+            var sortedPersons = PersonConverter.SerializeToFile("sorted-names-list.txt");
         }
     }
 }
