@@ -6,16 +6,16 @@ namespace NameSorter.QualityAssurance
     [TestFixture]
     public class NameSorterExecutorTestHarness
     {
-        [TestCase("TestCase1.txt", "ExpectedResult1.txt")]
-        [TestCase("TestCase2.txt", "ExpectedResult2.txt")]
-        [TestCase("TestCase3.txt", "ExpectedResult3.txt")]
+        [TestCase("SmallTestCase.txt", "SmallExpectedResult.txt")]
+        [TestCase("MediumTestCase.txt", "MediumExpectedResult.txt")]
+        [TestCase("LargeTestCase.txt", "LargeExpectedResult.txt")]
         public void CanSortLargeList(string inputFile, string expectedOutputFile)
         {
             var expectedOutputFilePath = TestHelper.GetResourcePath(expectedOutputFile);
             var expectedFileContents = File.ReadAllText(expectedOutputFilePath);
 
             var inputFilePath = TestHelper.GetResourcePath(inputFile);
-            var fileContents = NameSorterExecutor.ExecuteSort(inputFilePath, "foobar.txt");
+            var fileContents = NameSorterExecutor.ExecuteSort(inputFilePath);
 
 
             Assert.AreEqual(expectedFileContents, fileContents);

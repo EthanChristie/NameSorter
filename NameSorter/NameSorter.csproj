@@ -7,32 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="QualityAssurance\Resources\ExpectedResult1.txt" />
-    <None Remove="QualityAssurance\Resources\ExpectedResult2.txt" />
-    <None Remove="QualityAssurance\Resources\ExpectedResult3.txt" />
+    <None Remove="QualityAssurance\Resources\LargeExpectedResult.txt" />
+    <None Remove="QualityAssurance\Resources\LargeTestCase.txt" />
+    <None Remove="QualityAssurance\Resources\MediumExpectedResult.txt" />
+    <None Remove="QualityAssurance\Resources\MediumTestCase.txt" />
     <None Remove="QualityAssurance\Resources\MultiplePersonTest.txt" />
-    <None Remove="QualityAssurance\Resources\TestCase1.txt" />
-    <None Remove="QualityAssurance\Resources\TestCase2.txt" />
-    <None Remove="QualityAssurance\Resources\TestCase3.txt" />
+    <None Remove="QualityAssurance\Resources\SmallExpectedResult.txt" />
+    <None Remove="QualityAssurance\Resources\SmallTestCase.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="QualityAssurance\Resources\ExpectedResult3.txt">
+    <Content Include="QualityAssurance\Resources\LargeExpectedResult.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="QualityAssurance\Resources\ExpectedResult2.txt">
+    <Content Include="QualityAssurance\Resources\MediumExpectedResult.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="QualityAssurance\Resources\ExpectedResult1.txt">
+    <Content Include="QualityAssurance\Resources\SmallExpectedResult.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="QualityAssurance\Resources\TestCase3.txt">
+    <Content Include="QualityAssurance\Resources\LargeTestCase.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="QualityAssurance\Resources\TestCase2.txt">
+    <Content Include="QualityAssurance\Resources\MediumTestCase.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="QualityAssurance\Resources\TestCase1.txt">
+    <Content Include="QualityAssurance\Resources\SmallTestCase.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="QualityAssurance\Resources\MultiplePersonTest.txt">

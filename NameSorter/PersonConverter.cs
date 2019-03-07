@@ -35,14 +35,18 @@ namespace NameSorter
 
             var sb = new StringBuilder();
             sb.AppendJoin(Environment.NewLine, names);
+            var fileContents = sb.ToString();
 
-            var path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-            using (var file = new StreamWriter(path))
+            if (fileName != null)
             {
-                file.Write(sb.ToString());
+                var path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+                using (var file = new StreamWriter(path))
+                {
+                    file.Write(fileContents);
+                }
             }
-
-            return File.ReadAllText(path);
+            
+            return fileContents;
         }
     }
 }
