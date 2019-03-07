@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace NameSorter
+namespace NameSorter.QualityAssurance
 {
     [TestFixture]
     public class NameSorterTestHarness

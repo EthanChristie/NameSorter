@@ -7,10 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="QualityAssurance\Resources\ExpectedResult1.txt" />
+    <None Remove="QualityAssurance\Resources\ExpectedResult2.txt" />
     <None Remove="QualityAssurance\Resources\MultiplePersonTest.txt" />
+    <None Remove="QualityAssurance\Resources\TestCase1.txt" />
+    <None Remove="QualityAssurance\Resources\TestCase2.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="QualityAssurance\Resources\ExpectedResult2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="QualityAssurance\Resources\ExpectedResult1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="QualityAssurance\Resources\TestCase2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="QualityAssurance\Resources\TestCase1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="QualityAssurance\Resources\MultiplePersonTest.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace NameSorter
 {
     public class PersonConverter
     {
-        internal static List<Person> DeserializeFromFile(string fileName)
+        public static List<Person> DeserializeFromFile(string fileName)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
             var lines = File.ReadAllLines(path);
@@ -27,9 +29,20 @@ namespace NameSorter
             return namesInFile;
         }
 
-        internal static object SerializeToFile(string v)
+        public static string SerializeToFile(List<Person> peopleToSerialize, string fileName)
         {
-            throw new NotImplementedException();
+            var names = peopleToSerialize.Select(p => $"{p.GivenNames} {p.LastName}");
+
+            var sb = new StringBuilder();
+            sb.AppendJoin(Environment.NewLine, names);
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+            using (var file = new StreamWriter(path))
+            {
+                file.Write(sb.ToString());
+            }
+
+            return File.ReadAllText(path);
         }
     }
 }

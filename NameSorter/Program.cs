@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace NameSorter
 {
@@ -7,15 +6,12 @@ namespace NameSorter
     {
         public static void Main(string[] args)
         {
-            string fileName = "input-file.txt";
+            var inputFile = args[0];
+            const string outputFile = "sorted-names-list.txt";
 
-            var persons = PersonConverter.DeserializeFromFile(fileName);
+            var fileContents = NameSorterExecutor.ExecuteSort(inputFile, outputFile);
 
-            var nameSorter = new PersonComparer();
-
-            persons.Sort(nameSorter);
-
-            var sortedPersons = PersonConverter.SerializeToFile("sorted-names-list.txt");
+            Console.Write(fileContents);
         }
     }
 }
