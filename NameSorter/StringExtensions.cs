@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace NameSorter
 {
@@ -9,7 +7,7 @@ namespace NameSorter
         public static List<int> AllIndexesOf(this string str, char value)
         {
             var indexes = new List<int>();
-            for (int index = 0; index < str.Length; index++)
+            for (var index = 0; index < str.Length; index++)
             {
                 if (str[index] == value)
                 {

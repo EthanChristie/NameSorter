@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using NUnit.Framework;
 
 namespace NameSorter.QualityAssurance
@@ -7,13 +6,17 @@ namespace NameSorter.QualityAssurance
     [TestFixture]
     public class NameSorterExecutorTestHarness
     {
-        [TestCase("QualityAssurance//Resources//TestCase1.txt", "QualityAssurance//Resources//ExpectedResult1.txt")]
-        [TestCase("QualityAssurance//Resources//TestCase2.txt", "QualityAssurance//Resources//ExpectedResult2.txt")]
-        public void CanSortLargeList(string inputFile, string expectedOutput)
+        [TestCase("TestCase1.txt", "ExpectedResult1.txt")]
+        [TestCase("TestCase2.txt", "ExpectedResult2.txt")]
+        [TestCase("TestCase3.txt", "ExpectedResult3.txt")]
+        public void CanSortLargeList(string inputFile, string expectedOutputFile)
         {
-            var fileContents = NameSorterExecutor.ExecuteSort(inputFile, "foobar.txt");
+            var expectedOutputFilePath = TestHelper.GetResourcePath(expectedOutputFile);
+            var expectedFileContents = File.ReadAllText(expectedOutputFilePath);
 
-            var expectedFileContents = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), expectedOutput));
+            var inputFilePath = TestHelper.GetResourcePath(inputFile);
+            var fileContents = NameSorterExecutor.ExecuteSort(inputFilePath, "foobar.txt");
+
 
             Assert.AreEqual(expectedFileContents, fileContents);
         }

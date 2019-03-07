@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NameSorter
 {
@@ -7,11 +7,11 @@ namespace NameSorter
     {
         public int Compare(Person x, Person y)
         {
-            var compareName = x.LastName.CompareTo(y.LastName);
+            var compareName = string.Compare(x.LastName, y.LastName, StringComparison.OrdinalIgnoreCase);
 
             if (compareName == 0)
             {
-                return x.GivenNames.CompareTo(y.GivenNames);
+                return string.Compare(x.GivenNames, y.GivenNames, StringComparison.OrdinalIgnoreCase);
             }
 
             return compareName;

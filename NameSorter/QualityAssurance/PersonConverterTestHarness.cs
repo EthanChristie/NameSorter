@@ -13,7 +13,8 @@ namespace NameSorter.QualityAssurance
             var johnSmith = new Person("John", "Smith");
             var expectedList = new List<Person> { johnSmith };
 
-            var actualList = PersonConverter.DeserializeFromFile("QualityAssurance\\Resources\\SinglePersonTest.txt");
+            var filePath = TestHelper.GetResourcePath("SinglePersonTest.txt");
+            var actualList = PersonConverter.DeserializeFromFile(filePath);
 
             Assert.AreEqual(expectedList, actualList);
         }
@@ -27,7 +28,8 @@ namespace NameSorter.QualityAssurance
 
             var expectedList = new List<Person> { johnSmith, johnAardvarkJones, bobBarrymoreFredDylan };
 
-            var actualList = PersonConverter.DeserializeFromFile("QualityAssurance\\Resources\\MultiplePersonTest.txt");
+            var filePath = TestHelper.GetResourcePath("MultiplePersonTest.txt");
+            var actualList = PersonConverter.DeserializeFromFile(filePath);
 
             Assert.AreEqual(expectedList, actualList);
         }
@@ -38,7 +40,8 @@ namespace NameSorter.QualityAssurance
             var johnSmith = new Person("John", "Smith");
             var listToSerialize = new List<Person> { johnSmith };
 
-            var fileContents = PersonConverter.SerializeToFile(listToSerialize, "QualityAssurance\\Resources\\SinglePersonDeserializationTest.txt");
+            var filePath = TestHelper.GetResourcePath("SinglePersonDeserializationTest.txt");
+            var fileContents = PersonConverter.SerializeToFile(listToSerialize, filePath);
 
             Assert.AreEqual("John Smith", fileContents);
         }
@@ -52,7 +55,8 @@ namespace NameSorter.QualityAssurance
 
             var listToSerialize = new List<Person> { johnSmith, johnAardvarkJones, bobBarrymoreFredDylan };
 
-            var fileContents = PersonConverter.SerializeToFile(listToSerialize, "QualityAssurance\\Resources\\MultiplePersonDeserializationTest.txt");
+            var filePath = TestHelper.GetResourcePath("SinglePersonDeserializationTest.txt");
+            var fileContents = PersonConverter.SerializeToFile(listToSerialize, filePath);
 
             Assert.AreEqual($"John Smith{Environment.NewLine}John Aardvark Jones{Environment.NewLine}Bob Barrymore Fred Dylan", fileContents);
         }
