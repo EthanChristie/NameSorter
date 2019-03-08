@@ -17,11 +17,11 @@ namespace NameSorter
 
             foreach (var line in lines)
             {
-                var indexes = line.AllIndexesOf(' ');
-                var lastIndex = indexes[indexes.Count - 1];
+                var indexesOfDelimiter = line.AllIndexesOf(' ').ToList();
+                var lastIndexOfDelimiter = indexesOfDelimiter.Last();
 
-                var givenNames = line.Substring(0, lastIndex);
-                var lastName = line.Substring(lastIndex).Trim();
+                var givenNames = line.Substring(0, lastIndexOfDelimiter);
+                var lastName = line.Substring(lastIndexOfDelimiter).Trim();
 
                 namesInFile.Add(new Person(givenNames, lastName));
             }

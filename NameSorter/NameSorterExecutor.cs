@@ -9,7 +9,6 @@
             var nameSorter = new PersonComparer();
             persons.Sort(nameSorter);
 
-
             var fileContents = PersonConverter.SerializeToFile(persons, outputFile);
             return fileContents;
         }

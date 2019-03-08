@@ -17,7 +17,6 @@ namespace NameSorter.QualityAssurance
             var expectedList = new List<Person> { georgeArcher, janetBentley };
 
             var nameSorter = new PersonComparer();
-
             actualList.Sort(nameSorter);
 
             Assert.AreEqual(expectedList, actualList);
@@ -32,11 +31,9 @@ namespace NameSorter.QualityAssurance
             var georgeArcher = new Person("George", "Archer");
 
             var actualList = new List<Person> {  janetJacksonBentley, janetAardvarkBentley, georgeArcher };
-
             var expectedList = new List<Person> { georgeArcher, janetAardvarkBentley, janetJacksonBentley };
 
             var nameSorter = new PersonComparer();
-
             actualList.Sort(nameSorter);
 
             Assert.AreEqual(expectedList, actualList);
